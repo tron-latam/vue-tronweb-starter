@@ -17,7 +17,7 @@ contract Ballot {
         address owner;  // address that created the proposal
         // If you can limit the length to a certain number of bytes,
         // always use one of bytes1 to bytes32 because they are much cheaper
-        bytes32 name;   // short name (up to 32 bytes)
+        string name;   // short name
         uint voteCount; // number of accumulated votes
     }
 
@@ -59,7 +59,7 @@ contract Ballot {
      * @dev Creates and saves new proposal
      * @param _name name of proposal
      */
-    function _createProposal(bytes32 _name, address _owner) internal {
+    function _createProposal(string memory _name, address _owner) internal {
          proposals.push(Proposal({
                 owner: _owner,
                 name: _name,
@@ -72,7 +72,7 @@ contract Ballot {
      * @dev Sends a new proposal to be saved
      * @param _name Name of proposal
      */
-    function sendProposal(bytes32 _name) public hasVoteRight {
+    function sendProposal(string memory _name) public hasVoteRight {
         _createProposal(_name, msg.sender);
     }
 
@@ -149,7 +149,7 @@ contract Ballot {
      * @return winnerName_ the name of the winner
      */
     function winnerName() public view
-            returns (bytes32 winnerName_)
+            returns (string memory winnerName_)
     {
         winnerName_ = proposals[winningProposal()].name;
     }
