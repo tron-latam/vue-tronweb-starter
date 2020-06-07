@@ -23,10 +23,14 @@ contract Ballot {
 
     address public chairPerson;
 
-    mapping(address => Voter) public voters;
-
     uint public proposalCount;
     Proposal[] public proposals;
+
+    mapping(address => Voter) public voters;
+
+    event eventNewProposal(
+        uint proposalIndex
+    );
 
     /**
      * @dev Modifier to validate if is chairPerson
@@ -65,6 +69,7 @@ contract Ballot {
                 name: _name,
                 voteCount: 0
             }));
+        emit eventNewProposal(proposalCount);
         proposalCount++;
     }
 

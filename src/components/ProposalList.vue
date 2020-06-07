@@ -39,6 +39,17 @@ export default {
     const loadingProposals = [];
     for (let i = 0; i < this.numberOfProposals; i += 1) loadingProposals.push(this.getProposal(i));
     this.proposals = await Promise.all(loadingProposals);
+    contract.eventNewProposal().watch(async (err, event) => {
+      if (err) {
+        // Something went wrong
+      }
+      if (event) {
+        const { proposalIndex } = event.result;
+        const newProposal = await this.getProposal(proposalIndex);
+        this.proposals.push(newProposal);
+        this.numberOfProposals += 1;
+      }
+    });
   },
   methods: {
     async getProposal(proposalIndex) {

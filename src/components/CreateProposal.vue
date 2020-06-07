@@ -32,6 +32,7 @@ export default {
       try {
         await contract.sendProposal(this.name).send({ shouldPollResponse: true });
         this.message = 'Proposal sent';
+        this.name = null;
       } catch (e) {
         this.message = 'Failed to send proposal';
       }
