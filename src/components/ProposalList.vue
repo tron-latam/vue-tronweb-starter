@@ -16,7 +16,7 @@
           <td>{{proposal.name}}</td>
           <td>{{proposal.owner}}</td>
           <td>{{proposal.voteCount}}</td>
-          <td><vote-proposal :proposalIndex="index" /></td>
+          <td><ProposalVote :proposalIndex="index" /></td>
         </tr>
       </tbody>
     </table>
@@ -24,13 +24,13 @@
 </template>
 
 <script>
-import VoteProposal from '@/components/VoteProposal.vue';
+import ProposalVote from '@/components/ProposalVote.vue';
 import { getTronWebInstance } from '@/services/tronWebUtils';
 
 export default {
   name: 'ProposalList',
   components: {
-    voteProposal: VoteProposal,
+    ProposalVote,
   },
   data() {
     return {

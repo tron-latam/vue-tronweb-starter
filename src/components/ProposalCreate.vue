@@ -13,7 +13,7 @@
 import { getTronWebInstance } from '@/services/tronWebUtils';
 
 export default {
-  name: 'CreateProposal',
+  name: 'ProposalCreate',
   data() {
     return {
       name: null,

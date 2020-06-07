@@ -28,7 +28,11 @@ contract Ballot {
 
     mapping(address => Voter) public voters;
 
-    event eventNewProposal(
+    event proposalSubmited(
+        uint proposalIndex
+    );
+
+    event proposalVoted(
         uint proposalIndex
     );
 
@@ -69,7 +73,7 @@ contract Ballot {
                 name: _name,
                 voteCount: 0
             }));
-        emit eventNewProposal(proposalCount);
+        emit proposalSubmited(proposalCount);
         proposalCount++;
     }
 
@@ -131,6 +135,7 @@ contract Ballot {
         // this will throw automatically and revert all
         // changes.
         proposals[_proposal].voteCount += sender.weight;
+        emit proposalVoted(_proposal);
     }
 
     /**

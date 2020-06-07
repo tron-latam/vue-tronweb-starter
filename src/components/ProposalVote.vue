@@ -9,7 +9,7 @@
 import { getTronWebInstance } from '@/services/tronWebUtils';
 
 export default {
-  name: 'VoteProposal',
+  name: 'ProposalVote',
   props: {
     proposalIndex: null,
   },
