@@ -1,7 +1,11 @@
 {
   "name": "vue-tronweb-starter",
   "version": "0.1.0",
-  "private": true,
+  "description": "A aboilerplate project with Vue and TronWeb.",
+  "homepage": "https://github.com/tron-latam",
+  "repository": "tron-latam/milvueligram-tronweb-starter",
+  "license": "MIT",
+  "author": "Cryptouru <cryptouru@gmail.com>",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
