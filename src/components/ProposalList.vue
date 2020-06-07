@@ -56,6 +56,15 @@ export default {
         this.numberOfProposals += 1;
       }
     });
+    contract.proposalVoted().watch(async (err, event) => {
+      if (err) {
+        // Something went wrong
+      }
+      if (event) {
+        const { proposalIndex } = event.result;
+        this.proposals[proposalIndex].voteCount += 1;
+      }
+    });
   },
   methods: {
     async getProposal(proposalIndex) {
