@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div>
     <h2>Create a new Proposal</h2>
     <input type="text" v-model="name" placeholder="Proposal name">
     <button class="send" @click='sendProposal'>Submit</button>

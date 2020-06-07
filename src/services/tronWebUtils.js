@@ -5,6 +5,7 @@ const tronWebInstance = {
   tronWeb: null,
   contract: null,
   loaded: false,
+  loading: null,
 };
 
 function pollTronLink(maxTries, pollInterval) {
@@ -40,6 +41,9 @@ export async function initTronWeb() {
 
 export async function getTronWebInstance() {
   if (tronWebInstance.loaded) return tronWebInstance;
-  await initTronWeb();
+  if (!tronWebInstance.loading) {
+    tronWebInstance.loading = initTronWeb();
+  }
+  await tronWebInstance.loading;
   return tronWebInstance;
 }

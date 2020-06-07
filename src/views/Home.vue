@@ -3,22 +3,28 @@
     <img alt="Tron logo" src="../assets/tron-trx-logo.png" class="logo">
     <img alt="Vue logo" src="../assets/logo.png" class="logo">
     <CreateProposal />
+    <ProposalList />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import CreateProposal from '@/components/CreateProposal.vue';
+import ProposalList from '@/components/ProposalList.vue';
 
 export default {
   name: 'Home',
   components: {
     CreateProposal,
+    ProposalList,
   },
 };
 </script>
 
 <style scoped>
+.home {
+  padding: 36px;
+}
 .logo {
   max-width: 200px;
 }
