@@ -8,6 +8,7 @@
           <th>Name</th>
           <th>Owner</th>
           <th>Votes</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -15,6 +16,7 @@
           <td>{{proposal.name}}</td>
           <td>{{proposal.owner}}</td>
           <td>{{proposal.voteCount}}</td>
+          <td><vote-proposal :proposalIndex="index" /></td>
         </tr>
       </tbody>
     </table>
@@ -22,10 +24,14 @@
 </template>
 
 <script>
+import VoteProposal from '@/components/VoteProposal.vue';
 import { getTronWebInstance } from '@/services/tronWebUtils';
 
 export default {
   name: 'ProposalList',
+  components: {
+    voteProposal: VoteProposal,
+  },
   data() {
     return {
       numberOfProposals: null,
