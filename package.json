@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "test": "npm run test:unit && npm run test:contracts",
     "test:unit": "vue-cli-service test:unit",
+    "test:contracts": "tronbox test contracts/test/**",
     "lint": "vue-cli-service lint",
     "tronbox-compile": "tronbox compile --compile-all",
     "tronbox-migrate": "tronbox migrate --reset --network shasta"
