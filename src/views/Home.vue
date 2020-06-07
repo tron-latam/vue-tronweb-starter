@@ -4,6 +4,7 @@
     <img alt="Vue logo" src="../assets/logo.png" class="logo">
     <ProposalCreate />
     <ProposalList />
+    <Delegate />
   </div>
 </template>
 
@@ -11,12 +12,14 @@
 // @ is an alias to /src
 import ProposalCreate from '@/components/ProposalCreate.vue';
 import ProposalList from '@/components/ProposalList.vue';
+import Delegate from '@/components/Delegate.vue';
 
 export default {
   name: 'Home',
   components: {
     ProposalCreate,
     ProposalList,
+    Delegate,
   },
 };
 </script>

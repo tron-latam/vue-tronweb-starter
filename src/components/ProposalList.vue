@@ -45,7 +45,7 @@ export default {
     const loadingProposals = [];
     for (let i = 0; i < this.numberOfProposals; i += 1) loadingProposals.push(this.getProposal(i));
     this.proposals = await Promise.all(loadingProposals);
-    contract.eventNewProposal().watch(async (err, event) => {
+    contract.proposalSubmited().watch(async (err, event) => {
       if (err) {
         // Something went wrong
       }
