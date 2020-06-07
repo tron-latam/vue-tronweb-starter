@@ -36,6 +36,7 @@ export default {
         return;
       }
       try {
+        this.enabled = false;
         await contract.vote(this.proposalIndex).send({ shouldPollResponse: true });
         this.message = 'Vote sent';
       } catch (e) {

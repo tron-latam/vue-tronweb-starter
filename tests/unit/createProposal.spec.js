@@ -1,10 +1,10 @@
 import { expect } from 'chai';
 import { shallowMount } from '@vue/test-utils';
-import CreateProposal from '@/components/CreateProposal.vue';
+import ProposalCreate from '@/components/ProposalCreate.vue';
 
-describe('CreateProposal.vue', () => {
+describe('ProposalCreate.vue', () => {
   it('renders with text input', () => {
-    const wrapper = shallowMount(CreateProposal);
+    const wrapper = shallowMount(ProposalCreate);
     expect(wrapper.exists()).to.equal(true);
     expect(wrapper.contains('input')).to.equal(true);
   });
