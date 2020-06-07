@@ -2,11 +2,27 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/owner" v-if="isOwner">Owner</router-link>
     </div>
     <router-view/>
   </div>
 </template>
+
+
+<script>
+import { isOwner } from '@/services/tronWebUtils';
+
+export default {
+  data() {
+    return {
+      isOwner: false,
+    };
+  },
+  async mounted() {
+    this.isOwner = await isOwner();
+  },
+};
+</script>
 
 <style>
 #app {

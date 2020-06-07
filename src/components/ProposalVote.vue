@@ -24,7 +24,7 @@ export default {
     const { tronWeb, contract, loggedIn } = await getTronWebInstance();
     if (!loggedIn) return;
     const voter = await contract.voters(tronWeb.defaultAddress.base58).call();
-    if (voter.voted) return;
+    if (voter.voted || voter.weight.toNumber() === 0) return;
     this.enabled = true;
   },
   methods: {

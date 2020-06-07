@@ -47,3 +47,10 @@ export async function getTronWebInstance() {
   await tronWebInstance.loading;
   return tronWebInstance;
 }
+
+export async function isOwner() {
+  const { tronWeb, contract, loggedIn } = await getTronWebInstance();
+  if (!loggedIn) return false;
+  const owner = await contract.chairPerson().call();
+  return owner === tronWeb.defaultAddress.hex;
+}
