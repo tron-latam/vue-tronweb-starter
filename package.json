@@ -20,7 +20,7 @@
     "core-js": "^3.6.5",
     "dotenv": "^8.2.0",
     "tronweb": "^2.10.2",
-    "vue": "^2.6.11",
+    "vue": "^3.0.0",
     "vue-router": "^3.2.0"
   },
   "devDependencies": {
